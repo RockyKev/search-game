@@ -19,13 +19,11 @@ gameScene.init = function () {
 
 gameScene.create = function () {
 
+    this.music = this.sound.add('game_bgm');
+
+    this.music.play();
 
     // TODO
-    // create the HUD
-    // define a 'updateHUD'
-
-    // If a element is picked, then make it colored in the game area.
-
     // It also checks if all 12 is found before taking you to a game over.
 
     // load a countdown before starting.
@@ -33,22 +31,10 @@ gameScene.create = function () {
 
     // add a way to move the screen left and right.
 
-
-
     // game background
     let bg = this.add.sprite(0, 0, 'background');
     bg.setOrigin(0, 0);
-
-
-    // bg.setDisplaySize(this.sys.canvas.width, this.sys.canvas.height);
     bg.setDisplaySize(this.sys.game.config.width, this.sys.game.config.height);
-
-    // random dice
-    const getRandomInt = function (min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min)) + min;
-    }
 
     // const flowerX = getRandomInt(1, 8);
     // console.log(flowerX);
@@ -64,6 +50,15 @@ gameScene.create = function () {
     // create all the seek and find graphics
     this.createAllElements();
 
+    // enable cursor keys
+    this.cursors = this.input.keyboard.createCursorKeys();
+    this.input.on('pointerdown', function (pointer) {
+        console.log(pointer.x, pointer.y);
+    });
+
+    // load all the sound
+    this.sfxCoin = this.sound.add('collect');
+    this.sfxVictory = this.sound.add('victory');
 
 
 };
@@ -81,9 +76,9 @@ gameScene.createTopUI = function () {
     let textBg = this.add.graphics();
     textBg.fillStyle(0x00000, 0.9);
     textBg.fillRect(
-        hudX - 10,
+        hudX - 20,
         hudY - 10,
-        this.hudText.width + 20,
+        this.hudText.width + 40,
         this.hudText.height + 20
     );
 
@@ -123,18 +118,18 @@ gameScene.createBottomUI = function () {
     this.mario11ui.depth = 1;
     this.mario12ui.depth = 1;
 
-    this.mario01ui.alpha = 0.5;
-    this.mario02ui.alpha = 0.5;
-    this.mario03ui.alpha = 0.5;
-    this.mario04ui.alpha = 0.5;
-    this.mario05ui.alpha = 0.5;
-    this.mario06ui.alpha = 0.5;
-    this.mario07ui.alpha = 0.5;
-    this.mario08ui.alpha = 0.5;
-    this.mario09ui.alpha = 0.5;
-    this.mario10ui.alpha = 0.5;
-    this.mario11ui.alpha = 0.5;
-    this.mario12ui.alpha = 0.5;
+    this.mario01ui.alpha = 0.3;
+    this.mario02ui.alpha = 0.3;
+    this.mario03ui.alpha = 0.3;
+    this.mario04ui.alpha = 0.3;
+    this.mario05ui.alpha = 0.3;
+    this.mario06ui.alpha = 0.3;
+    this.mario07ui.alpha = 0.3;
+    this.mario08ui.alpha = 0.3;
+    this.mario09ui.alpha = 0.3;
+    this.mario10ui.alpha = 0.3;
+    this.mario11ui.alpha = 0.3;
+    this.mario12ui.alpha = 0.3;
 
 
     let uiBg = this.add.graphics();
@@ -157,18 +152,32 @@ gameScene.createAllElements = function () {
     // this.flowerBtn.setScale(0.25);
     // this.flowerBtn.on('pointerdown', this.setGameOver);
 
-    this.mario01btn = this.add.image(40 * 01, 100, 'mario01').setInteractive();
-    this.mario02btn = this.add.image(40 * 02, 100, 'mario02').setInteractive();
-    this.mario03btn = this.add.image(40 * 03, 100, 'mario03').setInteractive();
-    this.mario04btn = this.add.image(40 * 04, 100, 'mario04').setInteractive();
-    this.mario05btn = this.add.image(40 * 05, 100, 'mario05').setInteractive();
-    this.mario06btn = this.add.image(40 * 06, 100, 'mario06').setInteractive();
-    this.mario07btn = this.add.image(40 * 07, 100, 'mario07').setInteractive();
-    this.mario08btn = this.add.image(40 * 08, 100, 'mario08').setInteractive();
-    this.mario09btn = this.add.image(40 * 09, 100, 'mario09').setInteractive();
-    this.mario10btn = this.add.image(40 * 10, 100, 'mario10').setInteractive();
-    this.mario11btn = this.add.image(40 * 11, 100, 'mario11').setInteractive();
-    this.mario12btn = this.add.image(40 * 12, 100, 'mario12').setInteractive();
+    // this.mario01btn = this.add.image(40 * 01, 100, 'mario01').setInteractive();
+    // this.mario02btn = this.add.image(40 * 02, 100, 'mario02').setInteractive();
+    // this.mario03btn = this.add.image(40 * 03, 100, 'mario03').setInteractive();
+    // this.mario04btn = this.add.image(40 * 04, 100, 'mario04').setInteractive();
+    // this.mario05btn = this.add.image(40 * 05, 100, 'mario05').setInteractive();
+    // this.mario06btn = this.add.image(40 * 06, 100, 'mario06').setInteractive();
+    // this.mario07btn = this.add.image(40 * 07, 100, 'mario07').setInteractive();
+    // this.mario08btn = this.add.image(40 * 08, 100, 'mario08').setInteractive();
+    // this.mario09btn = this.add.image(40 * 09, 100, 'mario09').setInteractive();
+    // this.mario10btn = this.add.image(40 * 10, 100, 'mario10').setInteractive();
+    // this.mario11btn = this.add.image(40 * 11, 100, 'mario11').setInteractive();
+    // this.mario12btn = this.add.image(40 * 12, 100, 'mario12').setInteractive();
+
+    this.mario01btn = this.add.image(022, 258, 'mario01').setInteractive(); // coin
+    this.mario02btn = this.add.image(363, 120, 'mario02').setInteractive(); // feather
+    this.mario03btn = this.add.image(528, 018, 'mario03').setInteractive(); // blue
+    this.mario04btn = this.add.image(208, 199, 'mario04').setInteractive(); // moon
+    this.mario05btn = this.add.image(331, 022, 'mario05').setInteractive(); // star
+    this.mario06btn = this.add.image(167, 323, 'mario06').setInteractive(); // flower
+    this.mario07btn = this.add.image(075, 300, 'mario07').setInteractive(); // redstar
+    this.mario08btn = this.add.image(540, 325, 'mario08').setInteractive(); // mushroom
+    this.mario09btn = this.add.image(440, 178, 'mario09').setInteractive(); // music
+    this.mario10btn = this.add.image(405, 353, 'mario10').setInteractive(); // questionbx
+    this.mario11btn = this.add.image(739, 139, 'mario11').setInteractive(); // redbox
+    this.mario12btn = this.add.image(480, 230, 'mario12').setInteractive(); // yoshicoin
+
 
 
     this.mario01btn.on('pointerdown', this.pickItem);
@@ -184,8 +193,9 @@ gameScene.createAllElements = function () {
     this.mario11btn.on('pointerdown', this.pickItem);
     this.mario12btn.on('pointerdown', this.pickItem);
 
-}
 
+
+}
 
 gameScene.pickItem = function () {
 
@@ -222,6 +232,9 @@ gameScene.pickItem = function () {
     // Fire the 'update UI' code.
     gameScene.updateUI();
 
+    // Play sfx
+    gameScene.sfxCoin.play();
+
     // destroy the item
     this.destroy();
 
@@ -237,27 +250,38 @@ gameScene.updateUI = function () {
     this.hudText.setText(content);
     console.log("text updated")
 
+    if (totalFound == 12) {
+        console.log("YOU WIN")
+        gameScene.setGameOver();
+    }
+
 }
 
 gameScene.setGameOver = function () {
     console.log("Ive been clicked!");
 
     // Show victory screen
-    const gameH = this.scene.sys.game.config.height;
-    const gameW = this.scene.sys.game.config.width;
+    // const gameH = this.scene.sys.game.config.height;
+    // const gameW = this.scene.sys.game.config.width;
+    const gameH = this.sys.game.config.height;
+    const gameW = this.sys.game.config.width;
 
     console.log(this);
 
-    let text = this.scene.add.text(gameW / 2, gameH / 2, 'YOU FOUND IT', {
+    // Stop Muysic - Play sfx
+    this.music.stop();
+    this.sfxVictory.play();
+
+    let text = this.add.text(gameW / 2, gameH / 2, 'YOU FOUND THEM ALL', {
         font: '40px Arial',
         fill: '#ffffff',
     });
 
     text.setOrigin(0.5, 0.5);
-    text.depth = 1;
+    text.depth = 10;
 
     // text background -- to add colors, you start with 0x, so 0xfffff
-    let textBg = this.scene.add.graphics();
+    let textBg = this.add.graphics();
     textBg.fillStyle(0x00000, 0.7);
     textBg.fillRect(
         gameW / 2 - text.width / 2 - 10,
@@ -267,12 +291,12 @@ gameScene.setGameOver = function () {
     );
 
     // Reset the game after 5 sec
-    this.scene.time.addEvent({
-        delay: 1000,
+    this.time.addEvent({
+        delay: 10000,
         repeat: 0,
         callbackScope: this,
         callback: function () {
-            this.scene.scene.start('Home');
+            this.scene.start('Home');
         },
     });
 

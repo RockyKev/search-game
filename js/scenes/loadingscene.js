@@ -36,6 +36,8 @@ loadingScene.preload = function () {
         this
     );
 
+
+
     // load assets
     this.load.image('backyard', 'assets/images/trees-bg2.jpg');
     this.load.image('background', 'assets/images/bg-mario.jpg');
@@ -54,6 +56,15 @@ loadingScene.preload = function () {
     this.load.image('mario11', "assets/images/mario/mario-12items_11.gif");
     this.load.image('mario12', "assets/images/mario/mario-12items_12.gif");
 
+    // // load audio
+    this.load.audio('title_bgm', 'assets/smw_title_bgm.mp3');
+    this.load.audio('game_bgm', 'assets/smw_overworld_bgm.mp3');
+
+    // // load audio sprite
+    // this.load.audioSprite('collect', 'assets/smw_coin.wav');
+    this.load.audio('victory', 'assets/smw_course_clear.wav');
+    this.load.audio('collect', 'assets/smw_coin.wav');
+
     // this.load.spritesheet('mario', 'assets/images/mario-12items.png', {
     //     frameWidth: 40, frameHeight: 40
     // })
@@ -69,6 +80,6 @@ loadingScene.preload = function () {
 
 loadingScene.create = function () {
 
-    // this.scene.start('Home');
-    this.scene.start('Game');
+    this.scene.start('Home');
+    // this.scene.start('Game');
 };

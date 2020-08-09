@@ -11,6 +11,11 @@ homeScene.create = function () {
     bg.setDisplaySize(this.sys.game.config.width, this.sys.game.config.height);
 
 
+    // load audio
+    const music = this.sound.add('title_bgm');
+    music.play();
+
+
     // welcome text
     const gameH = this.sys.game.config.height;
     const gameW = this.sys.game.config.width;
@@ -37,7 +42,9 @@ homeScene.create = function () {
         'pointerdown',
         function () {
             this.scene.start('Game');
+            music.stop();
         },
         this
     );
+
 };
