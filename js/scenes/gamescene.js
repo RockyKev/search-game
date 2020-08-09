@@ -11,7 +11,7 @@ gameScene.init = function () {
     // console.log("generate UI scene");
 
 
-    this.itemsPicked = ["dog"];
+    this.itemsPicked = [];
     this.totalFound = this.itemsPicked.length;
 
 };
@@ -72,21 +72,21 @@ gameScene.createTopUI = function () {
     let hudX = 20;
     let hudY = 20;
 
-    let hudText = this.add.text(hudX, hudY, `TOTAL CLICKS: ${this.totalFound}/12`, {
+    this.hudText = this.add.text(hudX, hudY, `TOTAL CLICKS: ${this.totalFound}/12`, {
         fontSize: '24px',
         fill: '#FFF',
     });
-    hudText.depth = 1;
+    this.hudText.depth = 1;
 
     let textBg = this.add.graphics();
     textBg.fillStyle(0x00000, 0.9);
     textBg.fillRect(
         hudX - 10,
         hudY - 10,
-        hudText.width + 20,
-        hudText.height + 20
+        this.hudText.width + 20,
+        this.hudText.height + 20
     );
-    console.log("The top ui scene has fired");
+
 
 }
 gameScene.createBottomUI = function () {
@@ -189,9 +189,53 @@ gameScene.createAllElements = function () {
 
 gameScene.pickItem = function () {
 
-    // this.scene.
+    // Grab the name of the item -> put in global
+    let itemSelectedName = this.texture.key;
+    gameScene.itemsPicked.push(itemSelectedName);
+
+    console.log(itemSelectedName);
+    console.log(gameScene.itemsPicked);
+    // console.log("mario01 alpha", )
+    // change alpha
 
 
+    // bind items
+    const bindNames = {
+        "mario01": gameScene.mario01ui,
+        "mario02": gameScene.mario02ui,
+        "mario03": gameScene.mario03ui,
+        "mario04": gameScene.mario04ui,
+        "mario05": gameScene.mario05ui,
+        "mario06": gameScene.mario06ui,
+        "mario07": gameScene.mario07ui,
+        "mario08": gameScene.mario08ui,
+        "mario09": gameScene.mario09ui,
+        "mario10": gameScene.mario10ui,
+        "mario11": gameScene.mario11ui,
+        "mario12": gameScene.mario12ui,
+
+    }
+
+    // If clicked, make it highlight ont he toolbar.
+    bindNames[itemSelectedName].alpha = 1;
+
+    // Fire the 'update UI' code.
+    gameScene.updateUI();
+
+    // destroy the item
+    this.destroy();
+
+}
+
+gameScene.updateUI = function () {
+
+    // console.log("hude text", this.hudText)
+    let totalFound = this.itemsPicked.length;
+
+    let content = `TOTAL CLICKS: ${totalFound}/12`;
+
+    this.hudText.setText(content);
+    console.log("text updated")
 
 }
 
