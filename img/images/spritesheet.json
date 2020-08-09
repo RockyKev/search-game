@@ -1,0 +1,255 @@
+{
+	"frames": {
+		"mario-12items_01.png": {
+			"frame": {
+				"x": 1,
+				"y": 1,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_02.png": {
+			"frame": {
+				"x": 43,
+				"y": 1,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_03.gif": {
+			"frame": {
+				"x": 85,
+				"y": 1,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_04.gif": {
+			"frame": {
+				"x": 1,
+				"y": 43,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_05.png": {
+			"frame": {
+				"x": 43,
+				"y": 43,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_06.gif": {
+			"frame": {
+				"x": 85,
+				"y": 43,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_07.gif": {
+			"frame": {
+				"x": 1,
+				"y": 85,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_08.gif": {
+			"frame": {
+				"x": 43,
+				"y": 85,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_09.gif": {
+			"frame": {
+				"x": 85,
+				"y": 85,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_10.gif": {
+			"frame": {
+				"x": 127,
+				"y": 1,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_11.gif": {
+			"frame": {
+				"x": 127,
+				"y": 43,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		},
+		"mario-12items_12.gif": {
+			"frame": {
+				"x": 127,
+				"y": 85,
+				"w": 40,
+				"h": 40
+			},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {
+				"x": 0,
+				"y": 0,
+				"w": 40,
+				"h": 40
+			},
+			"sourceSize": {
+				"w": 40,
+				"h": 40
+			}
+		}
+	},
+	"meta": {
+		"app": "http://www.codeandweb.com/texturepacker",
+		"version": "1.0",
+		"image": "spritesheet.png",
+		"format": "RGBA8888",
+		"size": {
+			"w": 168,
+			"h": 126
+		},
+		"scale": "1"
+	}
+}
